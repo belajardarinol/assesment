@@ -1,0 +1,39 @@
+nama_produk:nama_produk 1
+url_checkout:http://url_checkout.com
+kode_produk:1231312
+kategori_produk:[1,2,5,7]
+koleksi_produk:[2,6,8,11]
+status_produk:1
+captcha:1
+visibilitas:1
+jumlah_maksimal:12
+deskripsi:<p> wertyuiopasdfghjklzxcvgbnm <br> fsrgtdrhyetwqrwety qewrgtrdasfgs <p> sdfgddgrwerdada
+tipe_produk:0
+setting_harga:["Harga Normal" => 35000, "Harga Penjualan" => 45000, "HPP" => 30000, "Harga Grosir" => [[50,25000],[150,23000]] 
+manajemen_stock:["Aktif" => 1, "Izinkan Backorder" => 1]
+gudang_persediaan:["Multi Gudang" => 1, "Gudang" => [[1,123],[4,[340], "Product Inventories" => [1,2,5]]
+status_stok:1
+setting_bump:["Nama Produk Bump" => "qwerty" , "Harga" => 33333, "Bump Weight" => 123, "Bump Image" => ["image1.png","image2.png"]]
+setting_pengiriman:["Berat" => 123, "Volume" => [23,45,65], "Tipe Pengiriman" => 1, "Kurir Pengiriman" => [1,4,7], "Layanan Pengiriman" => [1,2,3,7,12], "Provinsi" => 15, "Kota" => 1523, "Kecamatan" => 152364, "ongkos_kirim" => 123000, "Penambahan Biaya Pengiriman" => 23000, "Asuransi" => 1]
+metode_pembayaran:["Bank Transfer" => [1, "Deskripsi" => "qwerty"] , "COD" => [1,"Deskripsi"=>"qwerty","Pengaturan COD" => ["Biaya Kurir"=>5, "Tipe Biaya" => 1, "Minimal Biaya Kurir" => 5000, "Maksimal Biaya Kurir" => 15000, "Pengiriman" => [1, "Kurir COD↵" => [1,4,6,7]]], "E-Payment" => [1,2,4,5,7,8,9] ]
+kode_unik:[1, "Tipe" => 1, "Min" => 1, "Max" => 999]
+reseller:[1,"Jenis Komisi" => 1, "Tier" => [[1, "Commission Type" => 1, "Commission Value" => 25],[2, "Commission Type" => 1,"Commission Value" => 25]]
+cs_rotator:[1, ["Distribusi Order" => 2,  "Customer Service" => [ [ 1, 58], [3, 42]]
+nama_checkout:Yuk beli fail
+template:["template" => 1, "warna" : 1]
+section_titles:["Form" : "Data Penerima:" , "Variasi" : "Pilihan Produk:", "Metode Pembayaran" : "Metode Pembayaran:", "Poin Poin" : "Yang Anda Dapatkan:" , "Pengiriman" : "Pengiriman:"]
+header_setting:["judul" : "qwerty" , "tagline" : "asdfghdds"]
+gambar_checkout:1
+label_garansi:[1, "Tipe" : 1]
+variasi_produk:[]
+bidang_yang_diminta:["Nama" : ["Label" : "Nama", "PlaceHolder" : "Nama Anda", "Urut" :1] , "Kontak" : ["Label" : "NoWA", "PlaceHolder" : "No WA Anda", "Urut" :2] ,"Email" : ["Label" : "Email", "PlaceHolder" : "Email Anda", "Urut" :4, "Required" : 1], "Alamat Lengkap" : ["Label" : "Alamat", "PlaceHolder" : "Alamat Anda", "Urut" :5, "Required" : 1, "Field" : 1]]
+dropship:1
+button_setting:["warna" : 1, "teks" : "Beli Sekarang"]
+video:youtube.com/watch/34qwrfda
+konten:<p> wertyuiopasdfghjklzxcvgbnm <br> fsrgtdrhyetwqrwety qewrgtrdasfgs <p> sdfgddgrwerdada
+kolom_kupon:1
+poin_poin:["Fitur Satu,"Fitur Dua"]
+ringkasan_pesanan:1
+testimonials:[["gambar" : "user.png", "Nama" : "Kelsi", "Pesan" : "I love Ilham"],["gambar" : "user.png", "Nama" : "Kelsi", "Pesan" : "I love Ilham 2x"]]
+logo_bispro:1
+tracking_produk:["Pixel IDs" : [1,2,3] , "Pixel Events" : ["ViewContent" : ["value": "{{total_price]}", "currency" : "IDR", "content_name" :{product_name]]" , "content_category" : "{product_category_fully}"], "Purchase" : ["value": "{{total_price]}", "currency" : "IDR", "content_name" :{product_name]]" , "content_category" : "{product_category_fully}"]],"GTM IDs" : [1,2], "TikTok Pixel IDs" : [1,2,3]]
