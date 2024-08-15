@@ -401,6 +401,8 @@ return [
             'updated_at_helper'       => ' ',
             'deleted_at'              => 'Deleted at',
             'deleted_at_helper'       => ' ',
+            'keterangan'                   => 'Keterangan',
+            'keterangan_helper'            => ' ',
         ],
     ],
     'bab' => [
@@ -457,8 +459,7 @@ return [
             'updated_at_helper'            => ' ',
             'deleted_at'                   => 'Deleted at',
             'deleted_at_helper'            => ' ',
-            'keterangan'                   => 'Keterangan',
-            'keterangan_helper'            => ' ',
+
         ],
     ],
 ];
