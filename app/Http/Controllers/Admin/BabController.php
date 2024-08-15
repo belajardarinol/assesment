@@ -8,7 +8,7 @@ use App\Http\Requests\Request;
 use App\Http\Requests\UpdateBabRequest;
 use App\Models\Bab;
 use Gate;
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BabController extends Controller
