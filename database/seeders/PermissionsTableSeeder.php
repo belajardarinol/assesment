@@ -240,6 +240,87 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 58,
+                'title' => 'klasifikasi_edit',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'klasifikasi_show',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'klasifikasi_delete',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'klasifikasi_access',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'bab_create',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'bab_edit',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'bab_show',
+            ],
+            [
+                'id'    => 65,
+                'title' => 'bab_delete',
+            ],
+            [
+                'id'    => 66,
+                'title' => 'bab_access',
+            ],
+            [
+                'id'    => 67,
+                'title' => 'sub_bab_create',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'sub_bab_edit',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'sub_bab_show',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'sub_bab_delete',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'sub_bab_access',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'materi_create',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'materi_edit',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'materi_show',
+            ],
+            [
+                'id'    => 75,
+                'title' => 'materi_delete',
+            ],
+            [
+                'id'    => 76,
+                'title' => 'materi_access',
+            ],
+
+            [
+                'id'    => 77,
+                'title' => 'klasifikasi_create',
+            ],
+            [
+                'id'    => 78,
                 'title' => 'profile_password_edit',
             ],
 

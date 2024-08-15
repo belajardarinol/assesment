@@ -120,6 +120,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Cpmk
     Route::delete('cpmks/destroy', 'CpmkController@massDestroy')->name('cpmks.massDestroy');
     Route::resource('cpmks', 'CpmkController');
+
+    // Klasifikasi
+    Route::delete('klasifikasis/destroy', 'KlasifikasiController@massDestroy')->name('klasifikasis.massDestroy');
+    Route::resource('klasifikasis', 'KlasifikasiController');
+
+    // Bab
+    Route::delete('babs/destroy', 'BabController@massDestroy')->name('babs.massDestroy');
+    Route::resource('babs', 'BabController');
+
+    // Sub Bab
+    Route::delete('sub-babs/destroy', 'SubBabController@massDestroy')->name('sub-babs.massDestroy');
+    Route::resource('sub-babs', 'SubBabController');
+
+    // Materi
+    Route::delete('materis/destroy', 'MateriController@massDestroy')->name('materis.massDestroy');
+    Route::post('materis/parse-csv-import', 'MateriController@parseCsvImport')->name('materis.parseCsvImport');
+    Route::post('materis/process-csv-import', 'MateriController@processCsvImport')->name('materis.processCsvImport');
+    Route::resource('materis', 'MateriController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth', '2fa']], function () {
     // Change password

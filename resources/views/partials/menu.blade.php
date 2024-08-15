@@ -121,6 +121,50 @@
                 </ul>
             </li>
         @endcan
+        @can('klasifikasi_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.klasifikasis.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/klasifikasis') || request()->is('admin/klasifikasis/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-location-arrow c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.klasifikasi.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('bab_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.babs.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/babs') || request()->is('admin/babs/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-book c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.bab.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('sub_bab_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.sub-babs.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/sub-babs') || request()->is('admin/sub-babs/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-book-open c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.subBab.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('materi_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route('admin.materis.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/materis') || request()->is('admin/materis/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-chalkboard-teacher c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.materi.title') }}
+                </a>
+            </li>
+        @endcan
         @can('cpl_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.cpls.index') }}"
