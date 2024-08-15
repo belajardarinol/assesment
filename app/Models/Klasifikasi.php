@@ -22,6 +22,7 @@ class Klasifikasi extends Model
     protected $fillable = [
         'kode_klasifikasi',
         'klasifikasi',
+        'keterangan',
         'kode_subkategori',
         'subkategori',
         'created_at',

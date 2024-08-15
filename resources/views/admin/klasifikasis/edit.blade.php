@@ -34,6 +34,16 @@
                     <span class="help-block">{{ trans('cruds.klasifikasi.fields.klasifikasi_helper') }}</span>
                 </div>
                 <div class="form-group">
+                    <label for="keterangan">{{ trans('cruds.klasifikasi.fields.keterangan') }}</label>
+                    <textarea class="form-control {{ $errors->has('keterangan') ? 'is-invalid' : '' }}" name="keterangan" id="keterangan">{{ old('keterangan') }}</textarea>
+                    @if ($errors->has('keterangan'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('keterangan') }}
+                        </div>
+                    @endif
+                    <span class="help-block">{{ trans('cruds.klasifikasi.fields.keterangan_helper') }}</span>
+                </div>
+                <div class="form-group">
                     <label for="kode_subkategori">{{ trans('cruds.klasifikasi.fields.kode_subkategori') }}</label>
                     <input class="form-control {{ $errors->has('kode_subkategori') ? 'is-invalid' : '' }}" type="text"
                         name="kode_subkategori" id="kode_subkategori"
