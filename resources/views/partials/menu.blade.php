@@ -165,7 +165,7 @@
                 </a>
             </li>
         @endcan
-        @can('cpl_access')
+        {{-- @can('cpl_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.cpls.index') }}"
                     class="c-sidebar-nav-link {{ request()->is('admin/cpls') || request()->is('admin/cpls/*') ? 'c-active' : '' }}">
@@ -186,8 +186,8 @@
                     {{ trans('cruds.subCpmk.title') }}
                 </a>
             </li>
-        @endcan
-        @can('mata_kuliah_access')
+        @endcan --}}
+        {{-- @can('mata_kuliah_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.mata-kuliahs.index') }}"
                     class="c-sidebar-nav-link {{ request()->is('admin/mata-kuliahs') || request()->is('admin/mata-kuliahs/*') ? 'c-active' : '' }}">
@@ -208,19 +208,19 @@
                     {{ trans('cruds.kela.title') }}
                 </a>
             </li>
-        @endcan
-        @can('indikator_access')
+        @endcan --}}
+        @can('nilai_access')
             <li class="c-sidebar-nav-item">
-                <a href="{{ route('admin.indikators.index') }}"
-                    class="c-sidebar-nav-link {{ request()->is('admin/indikators') || request()->is('admin/indikators/*') ? 'c-active' : '' }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                <a href="{{ route('admin.nilais.index') }}"
+                    class="c-sidebar-nav-link {{ request()->is('admin/nilais') || request()->is('admin/nilais/*') ? 'c-active' : '' }}">
+                    <i class="fa-fw fas fa-rocket c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.indikator.title') }}
+                    {{ trans('cruds.nilai.title') }}
                 </a>
             </li>
         @endcan
-        @can('cpmk_access')
+        {{-- @can('cpmk_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.cpmks.index') }}"
                     class="c-sidebar-nav-link {{ request()->is('admin/cpmks') || request()->is('admin/cpmks/*') ? 'c-active' : '' }}">
@@ -230,7 +230,7 @@
                     {{ trans('cruds.cpmk.title') }}
                 </a>
             </li>
-        @endcan
+        @endcan --}}
         @if (
             \Illuminate\Support\Facades\Schema::hasColumn('teams', 'owner_id') &&
                 \App\Models\Team::where('owner_id', auth()->user()->id)->exists())

@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Indikator extends Model
+class Nilai extends Model
 {
     use SoftDeletes, HasFactory;
 
-    public $table = 'indikators';
+    public $table = 'nilais';
 
     protected $dates = [
         'created_at',

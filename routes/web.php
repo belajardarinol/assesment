@@ -113,9 +113,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('kelas/destroy', 'KelasController@massDestroy')->name('kelas.massDestroy');
     Route::resource('kelas', 'KelasController');
 
-    // Indikator
-    Route::delete('indikators/destroy', 'IndikatorController@massDestroy')->name('indikators.massDestroy');
-    Route::resource('indikators', 'IndikatorController');
+    // Nilai
+    Route::delete('nilais/destroy', 'NilaiController@massDestroy')->name('nilais.massDestroy');
+    Route::resource('nilais', 'NilaiController');
 
     // Cpmk
     Route::delete('cpmks/destroy', 'CpmkController@massDestroy')->name('cpmks.massDestroy');

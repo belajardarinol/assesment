@@ -156,23 +156,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 37,
-                'title' => 'indikator_create',
+                'title' => 'nilai_create',
             ],
             [
                 'id'    => 38,
-                'title' => 'indikator_edit',
+                'title' => 'nilai_edit',
             ],
             [
                 'id'    => 39,
-                'title' => 'indikator_show',
+                'title' => 'nilai_show',
             ],
             [
                 'id'    => 40,
-                'title' => 'indikator_delete',
+                'title' => 'nilai_delete',
             ],
             [
                 'id'    => 41,
-                'title' => 'indikator_access',
+                'title' => 'nilai_access',
             ],
             [
                 'id'    => 42,

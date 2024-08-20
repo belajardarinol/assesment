@@ -26,6 +26,29 @@ trait CsvImportTrait
             $reader = new SpreadsheetReader($path);
             $insert = [];
 
+            // foreach ($reader as $key => $row) {
+            //     if ($hasHeader && $key == 0) {
+            //         continue;
+            //     }
+
+            //     $tmp = [];
+            //     foreach ($fields as $header => $k) {
+            //         if (isset($row[$k])) {
+            //             $tmp[$header] = $row[$k];
+            //         }
+            //     }
+
+            //     if (count($tmp) > 0) {
+            //         $insert[] = $tmp;
+            //     }
+            // }
+
+            // $for_insert = array_chunk($insert, 100);
+
+            // foreach ($for_insert as $insert_item) {
+            //     $model::insert($insert_item);
+            // }
+
             foreach ($reader as $key => $row) {
                 if ($hasHeader && $key == 0) {
                     continue;
@@ -39,6 +62,7 @@ trait CsvImportTrait
                 }
 
                 if (count($tmp) > 0) {
+                    $tmp['klasifikasis'] = $request->input('klasifikasis', []);
                     $insert[] = $tmp;
                 }
             }
@@ -46,7 +70,12 @@ trait CsvImportTrait
             $for_insert = array_chunk($insert, 100);
 
             foreach ($for_insert as $insert_item) {
-                $model::insert($insert_item);
+                foreach ($insert_item as $data) {
+                    $materi = $model::create($data);
+                    if (isset($data['klasifikasis'])) {
+                        $materi->klasifikasis()->sync($data['klasifikasis']);
+                    }
+                }
             }
 
             $rows  = count($insert);

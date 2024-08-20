@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Indikator;
+use App\Models\Nilai;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class UpdateIndikatorRequest extends FormRequest
+class UpdateNilaiRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('indikator_edit');
+        return Gate::allows('nilai_edit');
     }
 
     public function rules()

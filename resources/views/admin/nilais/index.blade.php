@@ -1,35 +1,35 @@
 @extends('layouts.admin')
 @section('content')
-    @can('indikator_create')
+    @can('nilai_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.indikators.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.indikator.title_singular') }}
+                <a class="btn btn-success" href="{{ route('admin.nilais.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.nilai.title_singular') }}
                 </a>
             </div>
         </div>
     @endcan
     <div class="card">
         <div class="card-header">
-            {{ trans('cruds.indikator.title_singular') }} {{ trans('global.list') }}
+            {{ trans('cruds.nilai.title_singular') }} {{ trans('global.list') }}
         </div>
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class=" table table-bordered table-striped table-hover datatable datatable-Indikator">
+                <table class=" table table-bordered table-striped table-hover datatable datatable-Nilai">
                     <thead>
                         <tr>
                             <th width="10">
 
                             </th>
                             <th>
-                                {{ trans('cruds.indikator.fields.id') }}
+                                {{ trans('cruds.nilai.fields.id') }}
                             </th>
                             <th>
-                                {{ trans('cruds.indikator.fields.name') }}
+                                {{ trans('cruds.nilai.fields.name') }}
                             </th>
                             <th>
-                                {{ trans('cruds.indikator.fields.value') }}
+                                {{ trans('cruds.nilai.fields.value') }}
                             </th>
                             <th>
                                 &nbsp;
@@ -37,37 +37,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($indikators as $key => $indikator)
-                            <tr data-entry-id="{{ $indikator->id }}">
+                        @foreach ($nilais as $key => $nilai)
+                            <tr data-entry-id="{{ $nilai->id }}">
                                 <td>
 
                                 </td>
                                 <td>
-                                    {{ $indikator->id ?? '' }}
+                                    {{ $nilai->id ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $indikator->name ?? '' }}
+                                    {{ $nilai->name ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $indikator->value ?? '' }}
+                                    {{ $nilai->value ?? '' }}
                                 </td>
                                 <td>
-                                    @can('indikator_show')
-                                        <a class="btn btn-xs btn-primary"
-                                            href="{{ route('admin.indikators.show', $indikator->id) }}">
+                                    @can('nilai_show')
+                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.nilais.show', $nilai->id) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
 
-                                    @can('indikator_edit')
-                                        <a class="btn btn-xs btn-info"
-                                            href="{{ route('admin.indikators.edit', $indikator->id) }}">
+                                    @can('nilai_edit')
+                                        <a class="btn btn-xs btn-info" href="{{ route('admin.nilais.edit', $nilai->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
 
-                                    @can('indikator_delete')
-                                        <form action="{{ route('admin.indikators.destroy', $indikator->id) }}" method="POST"
+                                    @can('nilai_delete')
+                                        <form action="{{ route('admin.nilais.destroy', $nilai->id) }}" method="POST"
                                             onsubmit="return confirm('{{ trans('global.areYouSure') }}');"
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -92,11 +90,11 @@
     <script>
         $(function() {
             let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-            @can('indikator_delete')
+            @can('nilai_delete')
                 let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
                 let deleteButton = {
                     text: deleteButtonTrans,
-                    url: "{{ route('admin.indikators.massDestroy') }}",
+                    url: "{{ route('admin.nilais.massDestroy') }}",
                     className: 'btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
@@ -139,7 +137,7 @@
                 ],
                 pageLength: 100,
             });
-            let table = $('.datatable-Indikator:not(.ajaxTable)').DataTable({
+            let table = $('.datatable-Nilai:not(.ajaxTable)').DataTable({
                 buttons: dtButtons
             })
             $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e) {

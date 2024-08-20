@@ -157,9 +157,9 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'indikator' => [
-        'title'          => 'Indikator',
-        'title_singular' => 'Indikator',
+    'nilai' => [
+        'title'          => 'Nilai',
+        'title_singular' => 'Nilai',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',

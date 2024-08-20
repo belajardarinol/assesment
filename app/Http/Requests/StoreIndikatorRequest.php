@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Indikator;
+use App\Models\Nilai;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreIndikatorRequest extends FormRequest
+class StoreNilaiRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('indikator_create');
+        return Gate::allows('nilai_create');
     }
 
     public function rules()

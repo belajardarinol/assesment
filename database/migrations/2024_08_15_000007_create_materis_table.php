@@ -10,6 +10,7 @@ class CreateMaterisTable extends Migration
     {
         Schema::create('materis', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->engine = 'InnoDB';
             $table->string('keterampilan_apoteker')->nullable();
             $table->string('kode')->nullable();
             $table->timestamps();

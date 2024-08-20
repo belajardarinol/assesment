@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Indikator;
+use App\Models\Nilai;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyIndikatorRequest extends FormRequest
+class MassDestroyNilaiRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('indikator_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('nilai_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -20,7 +20,7 @@ class MassDestroyIndikatorRequest extends FormRequest
     {
         return [
             'ids'   => 'required|array',
-            'ids.*' => 'exists:indikators,id',
+            'ids.*' => 'exists:nilais,id',
         ];
     }
 }
