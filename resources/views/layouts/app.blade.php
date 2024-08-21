@@ -38,11 +38,12 @@
     </style>
 </head>
 
-<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
+<body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page"
+    style="background-image: url('bg.jpg'); background-size: cover;">
     <div class="flex-row align-items-center" style="margin-top: 10%">
-        <video autoplay muted loop id="bg-video">
+        {{-- <video autoplay muted loop id="bg-video">
             <source src="bg.mp4" type="video/mp4">
-        </video>
+        </video> --}}
         <div class="container">
             @yield('content')
         </div>
