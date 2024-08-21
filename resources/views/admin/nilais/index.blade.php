@@ -29,6 +29,9 @@
                                 {{ trans('cruds.nilai.fields.name') }}
                             </th>
                             <th>
+                                Materi
+                            </th>
+                            <th>
                                 {{ trans('cruds.nilai.fields.value') }}
                             </th>
                             <th>
@@ -46,7 +49,10 @@
                                     {{ $nilai->id ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $nilai->name ?? '' }}
+                                    {{ \App\Models\User::find($nilai->user_id)->name ?? '' }}
+                                </td>
+                                <td>
+                                    {{ \App\Models\Materi::find($nilai->materi_id)->keterampilan_apoteker ?? '' }}
                                 </td>
                                 <td>
                                     {{ $nilai->value ?? '' }}

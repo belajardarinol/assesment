@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyBabRequest;
-use App\Http\Requests\Request;
+use Symfony\Component\HttpFoundation\Request;
 use App\Http\Requests\UpdateBabRequest;
 use App\Models\Bab;
 use Gate;

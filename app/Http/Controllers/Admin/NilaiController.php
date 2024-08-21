@@ -29,7 +29,7 @@ class NilaiController extends Controller
         return view('admin.nilais.create');
     }
 
-    public function store(StoreNilaiRequest $request)
+    public function store(Request $request)
     {
         $nilai = Nilai::create($request->all());
 

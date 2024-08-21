@@ -20,7 +20,8 @@ class Nilai extends Model
     ];
 
     protected $fillable = [
-        'name',
+        'user_id',
+        'materi_id',
         'value',
         'created_at',
         'updated_at',
@@ -30,5 +31,15 @@ class Nilai extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function materi()
+    {
+        return $this->belongsTo(Materi::class, 'materi_id');
     }
 }

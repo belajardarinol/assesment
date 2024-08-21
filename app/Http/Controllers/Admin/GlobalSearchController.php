@@ -8,9 +8,7 @@ use Illuminate\Support\Str;
 
 class GlobalSearchController extends Controller
 {
-    private $models = [
-
-    ];
+    private $models = [];
 
     public function search(Request $request)
     {
@@ -34,6 +32,10 @@ class GlobalSearchController extends Controller
 
             $results = $query->take(10)
                 ->get();
+
+            // var_dump($results);
+            // echo 1111;
+            // die;
 
             foreach ($results as $result) {
                 $parsedData           = $result->only($fields);

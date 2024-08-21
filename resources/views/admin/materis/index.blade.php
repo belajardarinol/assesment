@@ -45,6 +45,9 @@
                                 {{ trans('cruds.materi.fields.klasifikasi') }}
                             </th>
                             <th>
+                                Sub-Katagori
+                            </th>
+                            <th>
                                 &nbsp;
                             </th>
                         </tr>
@@ -70,6 +73,11 @@
                                 <td>
                                     @foreach ($materi->klasifikasis as $key => $item)
                                         <span class="badge badge-info">{{ $item->klasifikasi }}</span>
+                                    @endforeach
+                                </td>
+                                <td>
+                                    @foreach ($materi->klasifikasis as $key => $item)
+                                        <span class="badge badge-info">{{ $item->subkategori }}</span>
                                     @endforeach
                                 </td>
                                 <td>

@@ -71,9 +71,11 @@ trait CsvImportTrait
 
             foreach ($for_insert as $insert_item) {
                 foreach ($insert_item as $data) {
+                    // var_dump($data['sub_bab_id']);
+                    // die;
                     $materi = $model::create($data);
-                    if (isset($data['klasifikasis'])) {
-                        $materi->klasifikasis()->sync($data['klasifikasis']);
+                    if (isset($data['sub_bab_id'])) {
+                        $materi->klasifikasis()->sync($data['sub_bab_id']);
                     }
                 }
             }
