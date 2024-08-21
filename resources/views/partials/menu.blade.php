@@ -1,5 +1,10 @@
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show">
-
+<style>
+    .c-sidebar .c-sidebar-nav-dropdown-toggle:hover,
+    .c-sidebar .c-sidebar-nav-link:hover {
+        background-color: #1f5d2c;
+    }
+</style>
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background:#143e18">
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
             {{ trans('panel.site_title') }}
