@@ -18,6 +18,9 @@ class NilaiController extends Controller
         abort_if(Gate::denies('nilai_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $nilais = Nilai::all();
+        if (auth()->user()->roles->first()->id == 2) {
+            $nilais = Nilai::where('user_id', auth()->user()->id)->get();
+        }
 
         return view('admin.nilais.index', compact('nilais'));
     }
