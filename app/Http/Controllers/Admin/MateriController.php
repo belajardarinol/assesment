@@ -40,6 +40,8 @@ class MateriController extends Controller
 
     public function store(Request $request)
     {
+        // var_dump($request->all());
+        // die;
         $materi = Materi::create($request->all());
         $materi->klasifikasis()->sync($request->input('klasifikasis', []));
 
@@ -52,7 +54,7 @@ class MateriController extends Controller
 
         $sub_babs = SubBab::pluck('judul_sub_bab', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $klasifikasis = Klasifikasi::pluck('klasifikasi', 'id');
+        $klasifikasis = Klasifikasi::pluck('subkategori', 'klasifikasi', 'id');
 
         $materi->load('sub_bab', 'klasifikasis');
 

@@ -62,7 +62,7 @@ trait CsvImportTrait
                 }
 
                 if (count($tmp) > 0) {
-                    $tmp['klasifikasis'] = $request->input('klasifikasis', []);
+                    // $tmp['klasifikasi_id'] = $request->input('klasifikasi_id', []);
                     $insert[] = $tmp;
                 }
             }
@@ -71,11 +71,12 @@ trait CsvImportTrait
 
             foreach ($for_insert as $insert_item) {
                 foreach ($insert_item as $data) {
-                    // var_dump($data['sub_bab_id']);
+                    // var_dump($data);
                     // die;
+                    $data['keterampilan_apoteker'] = mb_convert_encoding($data['keterampilan_apoteker'], 'UTF-8', 'auto') ?? null;
                     $materi = $model::create($data);
-                    if (isset($data['sub_bab_id'])) {
-                        $materi->klasifikasis()->sync($data['sub_bab_id']);
+                    if (isset($data['klasifikasi_id'])) {
+                        $materi->klasifikasis()->sync($data['klasifikasi_id']);
                     }
                 }
             }

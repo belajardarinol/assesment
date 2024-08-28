@@ -21,6 +21,7 @@ class Materi extends Model
 
     protected $fillable = [
         'sub_bab_id',
+        'klasifikasi_id',
         'keterampilan_apoteker',
         'kode',
         'created_at',

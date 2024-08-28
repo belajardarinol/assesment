@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Role;
 use App\Models\Team;
 use App\Models\User;
+use App\Models\Materi;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,15 @@ class UsersController extends Controller
         $users = User::with(['roles', 'team'])->get();
 
         return view('admin.users.index', compact('users'));
+    }
+
+    public function reset()
+    {
+        $materi = Materi::withTrashed()->limit(28)->get();
+        foreach ($materi as $key => $value) {
+            $value->update(['deleted_at' => null]);
+        }
+        return redirect()->route('admin.home');
     }
 
     public function masuk($id)

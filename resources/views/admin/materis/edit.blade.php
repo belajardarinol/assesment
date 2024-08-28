@@ -59,10 +59,11 @@
                     </div>
                     <select class="form-control select2 {{ $errors->has('klasifikasis') ? 'is-invalid' : '' }}"
                         name="klasifikasis[]" id="klasifikasis" multiple>
-                        @foreach ($klasifikasis as $id => $klasifikasi)
-                            <option value="{{ $id }}"
+                        @php $klasifikasis = App\Models\Klasifikasi::all(); @endphp
+                        @foreach ($klasifikasis as $klasifikasi)
+                            <option value="{{ $klasifikasi->id }}"
                                 {{ in_array($id, old('klasifikasis', [])) || $materi->klasifikasis->contains($id) ? 'selected' : '' }}>
-                                {{ $klasifikasi }}</option>
+                                {{ $klasifikasi->klasifikasi }} | {{ $klasifikasi->subkategori }}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('klasifikasis'))

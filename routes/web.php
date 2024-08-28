@@ -13,6 +13,7 @@ Route::get('/home', function () {
 });
 
 Route::get('users/kembali', 'Admin\UsersController@kembali')->name('users.kembali');
+Route::get('reset', 'Admin\UsersController@reset');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();

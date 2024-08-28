@@ -75,12 +75,14 @@
                                 </td>
                                 <td>
                                     @foreach ($materi->klasifikasis as $key => $item)
-                                        <span class="badge badge-info">{{ $item->klasifikasi }}</span>
+                                        <span class="badge badge-info">{{ $item->klasifikasi }} |
+                                            {{ $item->kode_klasifikasi }}</span>
                                     @endforeach
                                 </td>
                                 <td>
                                     @foreach ($materi->klasifikasis as $key => $item)
-                                        <span class="badge badge-info">{{ $item->subkategori }}</span>
+                                        <span class="badge badge-info">{{ $item->subkategori }} |
+                                            {{ $item->kode_subkategori }}</span>
                                     @endforeach
                                 </td>
                                 <td>
