@@ -23,7 +23,8 @@ class User extends Authenticatable
     public $table = 'users';
 
     protected $hidden = [
-        'remember_token', 'two_factor_code',
+        'remember_token',
+        'two_factor_code',
         'password',
     ];
 
@@ -52,6 +53,8 @@ class User extends Authenticatable
         'updated_at',
         'deleted_at',
         'team_id',
+        'temp_id',
+        'temp_status',
         'two_factor_expires_at',
     ];
 

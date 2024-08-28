@@ -9,14 +9,16 @@
         <a class="c-sidebar-brand-full h4" href="#">
             {{ trans('panel.site_title') }}
         </a>
+        <br>
+        <br>
     </div>
 
     <ul class="c-sidebar-nav">
-        <li>
+        {{-- <li>
             <select class="searchable-field form-control">
 
             </select>
-        </li>
+        </li> --}}
         <li class="c-sidebar-nav-item">
             <a href="{{ route('admin.home') }}" class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
@@ -119,7 +121,8 @@
                                 <i class="fa-fw fas fa-users c-sidebar-nav-icon">
 
                                 </i>
-                                {{ trans('cruds.team.title') }}
+                                {{-- {{ trans('cruds.team.title') }} --}}
+                                Universitas
                             </a>
                         </li>
                     @endcan
@@ -236,18 +239,20 @@
                 </a>
             </li>
         @endcan --}}
-        @if (
-            \Illuminate\Support\Facades\Schema::hasColumn('teams', 'owner_id') &&
-                \App\Models\Team::where('owner_id', auth()->user()->id)->exists())
-            <li class="c-sidebar-nav-item">
-                <a class="{{ request()->is('admin/team-members') || request()->is('admin/team-members/*') ? 'c-active' : '' }} c-sidebar-nav-link"
-                    href="{{ route('admin.team-members.index') }}">
-                    <i class="c-sidebar-nav-icon fa-fw fa fa-users">
-                    </i>
-                    <span>{{ trans('global.team-members') }}</span>
-                </a>
-            </li>
-        @endif
+        @can('team_delete')
+            @if (
+                \Illuminate\Support\Facades\Schema::hasColumn('teams', 'owner_id') &&
+                    \App\Models\Team::where('owner_id', auth()->user()->id)->exists())
+                <li class="c-sidebar-nav-item">
+                    <a class="{{ request()->is('admin/team-members') || request()->is('admin/team-members/*') ? 'c-active' : '' }} c-sidebar-nav-link"
+                        href="{{ route('admin.team-members.index') }}">
+                        <i class="c-sidebar-nav-icon fa-fw fa fa-users">
+                        </i>
+                        <span>{{ trans('global.team-members') }}</span>
+                    </a>
+                </li>
+            @endif
+        @endcan
         @if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">

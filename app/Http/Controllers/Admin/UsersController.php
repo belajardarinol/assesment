@@ -11,6 +11,7 @@ use App\Models\Team;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class UsersController extends Controller
@@ -22,6 +23,45 @@ class UsersController extends Controller
         $users = User::with(['roles', 'team'])->get();
 
         return view('admin.users.index', compact('users'));
+    }
+
+    public function masuk($id)
+    {
+        abort_if(Gate::denies('team_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        // $teams = Team::with(['owner'])->get();
+        $user = User::find($id);
+
+        $admin = User::find(auth()->user()->id);
+        $admin->update(['team_id' => $user->team_id]);
+        $admin->update(['temp_id' => $user->id]);
+        $admin->update(['temp_status' => 1]);
+        $admin->roles()->sync(2);
+        // return view('home');
+        return redirect()->route('admin.home');
+    }
+
+    public function kembali()
+    {
+        // echo 111;
+        // die;
+        // abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        // $teams = Team::with(['owner'])->get();
+        // var_dump(auth()->user()->id);
+        // die;
+        $update_team = User::find(1);
+        $update_team->update(['team_id' => null]);
+        $update_team->update(['temp_id' => null]);
+        $update_team->update(['temp_status' => 0]);
+        $update_team->roles()->sync(1);
+
+        $user = \App\Models\User::find(1);
+        // var_dump($user);
+        Auth::login($user);
+        // return view('home');
+        // redirect()->route('admin.home');
+        return redirect()->route('admin.home');
     }
 
     public function create()

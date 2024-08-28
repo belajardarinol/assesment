@@ -9,9 +9,10 @@ Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
     }
-
     return redirect()->route('admin.home');
 });
+
+Route::get('users/kembali', 'Admin\UsersController@kembali')->name('users.kembali');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
@@ -29,12 +30,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+    Route::get('users/masuk/{id}', 'UsersController@masuk')->name('users.masuk');
 
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 
     // Team
     Route::delete('teams/destroy', 'TeamController@massDestroy')->name('teams.massDestroy');
+    Route::get('teams/masuk/{id}', 'TeamController@masuk')->name('teams.masuk');
+    Route::get('teams/kembali', 'TeamController@kembali')->name('teams.kembali');
     Route::resource('teams', 'TeamController');
 
     // User Alerts

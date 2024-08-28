@@ -7,6 +7,7 @@ use App\Http\Requests\MassDestroyTeamRequest;
 use App\Http\Requests\StoreTeamRequest;
 use App\Http\Requests\UpdateTeamRequest;
 use App\Models\Team;
+use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,31 @@ class TeamController extends Controller
         $teams = Team::with(['owner'])->get();
 
         return view('admin.teams.index', compact('teams'));
+    }
+
+    public function masuk($id)
+    {
+        // abort_if(Gate::denies('team_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        // $teams = Team::with(['owner'])->get();
+        $update_team = User::find(auth()->user()->id);
+        $update_team->update(['team_id' => auth()->user()->id]);
+        $update_team->roles()->sync(3);
+        // return view('home');
+        return redirect()->route('admin.home');
+    }
+
+    public function kembali()
+    {
+        // abort_if(Gate::denies('team_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        // $teams = Team::with(['owner'])->get();
+        $update_team = User::find(auth()->user()->id);
+        $update_team->update(['team_id' => null]);
+        $update_team->roles()->sync(1);
+        // return view('home');
+        // redirect()->route('admin.home');
+        return redirect()->route('admin.home');
     }
 
     public function create()

@@ -55,12 +55,36 @@
                             @foreach (config('panel.available_languages') as $langLocale => $langName)
                                 <a class="dropdown-item"
                                     href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }}
-                                    ({{ $langName }})</a>
+                                    ({{ $langName }})
+                                </a>
                             @endforeach
                         </div>
                     </li>
                 @endif
+                Hello, {{ Auth::user()->name }} |
+                Role : {{ Auth::user()->roles->first()->title }} |
 
+                {{-- @php
+                    var_dump(Auth::user()->team);
+                    die();
+                @endphp --}}
+                @if (Auth::user()->team != null)
+                    {{-- Univ : {{ Auth::user()->team->name }} | --}}
+                @endif
+                @if (Auth::id() == 1 && Auth::user()->team != null)
+                    <a class="btn btn-link" href="{{ route('admin.teams.kembali') }}">
+                        Kembali Sebagai Super Admin
+                    </a>
+                @endif
+                @if (\App\Models\User::find(1)->temp_status == 1)
+                    <a class="btn btn-link" href="{{ route('users.kembali') }}">
+                        Kembali Sebagai Super Admin
+                    </a>
+                @endif
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logoutform').submit();">
+                    Logout </a>
                 <ul class="c-header-nav ml-auto">
                     <li class="c-header-nav-item dropdown notifications-menu">
                         <a href="#" class="c-header-nav-link" data-toggle="dropdown">

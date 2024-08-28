@@ -14,7 +14,14 @@
                         id="name" value="{{ old('name', '') }}"> --}}
                     <select name="user_id" id="user" class="form-control">
                         @php
-                            $users = App\Models\User::all();
+                            if (Auth::user()->roles->first()->id == 2) {
+                                $users = App\Models\User::where('id', Auth::id())->get();
+                            } else {
+                                $users = App\Models\User::all();
+                            }
+                            if (Auth::user()->roles->first()->id == 3) {
+                                $users = App\Models\User::where('team_id', Auth::user()->team_id)->get();
+                            }
                         @endphp
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
