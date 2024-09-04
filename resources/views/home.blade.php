@@ -103,7 +103,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">Nilai Rata-Rata per Klasifikasi</h5>
+                                            <h5 class="card-title">Nilai Rata-Rata per Sub-Kategori</h5>
                                             {{-- <p class="card-text">This is a wider card with supporting text below as a
                                                 natural
                                                 lead-in to additional content. This content is a little bit longer.</p> --}}
@@ -149,6 +149,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            {{-- <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                            </div> --}}
+                            @foreach ($nilai as $item)
+                                Materi : {{ $item->materi->keterampilan_apoteker }}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                        role="progressbar" aria-valuenow="{{ $item->value }}" aria-valuemin="0"
+                                        aria-valuemax="100" style="width: {{ $item->value }}%">
+                                        {{ $item->value }} %
+                                    </div>
+                                </div>
+                                <br>
+                            @endforeach
                         @endif
                         @if (Auth::user()->roles->first()->id == 1)
                             <div class="row">
@@ -179,14 +195,14 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="h4 m-0">
-                                                @php $members = \App\Models\Team::all(); @endphp
+                                                @php $members = \App\Models\Materi::all(); @endphp
                                                 @if ($members)
                                                     {{ count($members) }}
                                                 @else
                                                     0
                                                 @endif
                                             </div>
-                                            <div> Jumlah Universitas</div>
+                                            <div> Jumlah Materi</div>
                                             <div class="progress-xs my-3 mb-0 progress">
                                                 <div role="progressbar" aria-valuemin="0" aria-valuemax="100"
                                                     aria-valuenow="25" class="progress-bar bg-varning" style="width: 25%;">
@@ -214,146 +230,6 @@
                                     </div>
                                 </div>
                             </div> --}}
-
-                            <div class="row g-4 mb-4">
-                                <div class="col-sm-6 col-xl-3">
-                                    <div class="card text-white bg-primary">
-                                        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <div class="fs-4 fw-semibold">26K <span
-                                                        class="fs-6 fw-normal">(-12.4%)</span></div>
-                                                <div>Users</div>
-                                            </div>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent text-white p-0" type="button"
-                                                    data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                        href="#">Action</a><a class="dropdown-item"
-                                                        href="#">Another action</a><a class="dropdown-item"
-                                                        href="#">Something else here</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                            <canvas class="chart" id="card-chart1" height="70" width="258"
-                                                style="display: block; box-sizing: border-box; height: 70px; width: 258px;"></canvas>
-                                            <div class="chartjs-tooltip"
-                                                style="opacity: 0; left: 186.333px; top: 133.712px;">
-                                                <table style="margin: 0px;">
-                                                    <thead class="chartjs-tooltip-header">
-                                                        <tr class="chartjs-tooltip-header-item" style="border-width: 0px;">
-                                                            <th style="border-width: 0px;">May</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="chartjs-tooltip-body">
-                                                        <tr class="chartjs-tooltip-body-item">
-                                                            <td style="border-width: 0px;"><span
-                                                                    style="background: rgb(98, 97, 204); border-color: rgba(255, 255, 255, 0.55); border-width: 2px; margin-right: 10px; height: 10px; width: 10px; display: inline-block;"></span>My
-                                                                First dataset: 51</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.col-->
-                                <div class="col-sm-6 col-xl-3">
-                                    <div class="card text-white bg-info">
-                                        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <div class="fs-4 fw-semibold">$6.200 <span
-                                                        class="fs-6 fw-normal">(40.9%)</span></div>
-                                                <div>Income</div>
-                                            </div>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent text-white p-0" type="button"
-                                                    data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                        href="#">Action</a><a class="dropdown-item"
-                                                        href="#">Another action</a><a class="dropdown-item"
-                                                        href="#">Something else here</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                            <canvas class="chart" id="card-chart2" height="70" width="258"
-                                                style="display: block; box-sizing: border-box; height: 70px; width: 258px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.col-->
-                                <div class="col-sm-6 col-xl-3">
-                                    <div class="card text-white bg-warning">
-                                        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <div class="fs-4 fw-semibold">2.49% <span
-                                                        class="fs-6 fw-normal">(84.7%)</span></div>
-                                                <div>Conversion Rate</div>
-                                            </div>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent text-white p-0" type="button"
-                                                    data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                        href="#">Action</a><a class="dropdown-item"
-                                                        href="#">Another action</a><a class="dropdown-item"
-                                                        href="#">Something else here</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="c-chart-wrapper mt-3" style="height:70px;">
-                                            <canvas class="chart" id="card-chart3" height="70" width="290"
-                                                style="display: block; box-sizing: border-box; height: 70px; width: 290px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.col-->
-                                <div class="col-sm-6 col-xl-3">
-                                    <div class="card text-white bg-danger">
-                                        <div class="card-body pb-0 d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <div class="fs-4 fw-semibold">44K <span
-                                                        class="fs-6 fw-normal">(-23.6%)</span></div>
-                                                <div>Sessions</div>
-                                            </div>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent text-white p-0" type="button"
-                                                    data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                        </use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                                        href="#">Action</a><a class="dropdown-item"
-                                                        href="#">Another action</a><a class="dropdown-item"
-                                                        href="#">Something else here</a></div>
-                                            </div>
-                                        </div>
-                                        <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                            <canvas class="chart" id="card-chart4" height="70" width="258"
-                                                style="display: block; box-sizing: border-box; height: 70px; width: 258px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.col-->
-                            </div>
                         @endif
 
 

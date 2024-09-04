@@ -10,9 +10,13 @@ use App\Models\Nilai;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Controllers\Traits\NilaiImportTrait;
+// use App\Http\Controllers\Traits\CsvImportTrait;
 
 class NilaiController extends Controller
 {
+    use NilaiImportTrait;
+    // use CsvImportTrait;
     public function index()
     {
         abort_if(Gate::denies('nilai_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');

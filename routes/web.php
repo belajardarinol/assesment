@@ -120,6 +120,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Nilai
     Route::delete('nilais/destroy', 'NilaiController@massDestroy')->name('nilais.massDestroy');
+    Route::post('nilais/parse-csv-import', 'NilaiController@parseCsvImport')->name('nilais.parseCsvImport');
+    Route::post('nilais/process-csv-import', 'NilaiController@processCsvImport')->name('nilais.processCsvImport');
     Route::resource('nilais', 'NilaiController');
 
     // Cpmk
