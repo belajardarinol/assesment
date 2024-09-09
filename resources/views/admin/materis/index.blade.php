@@ -13,7 +13,7 @@
                     'model' => 'Materi',
                     'route' => 'admin.materis.parseCsvImport',
                 ])
-                <a class="btn btn-info" data-toggle="" data-target="#" href="/template/materi.csv">
+                <a class="btn btn-info" data-toggle="" data-target="#" href="/template/template_materi.csv">
                     Download Template
                 </a>
             </div>
