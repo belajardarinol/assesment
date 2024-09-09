@@ -4,7 +4,7 @@
         background-color: #1f5d2c;
     }
 </style>
-<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background:#143e18">
+<div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show" style="background:#411a5e">
     <div class="c-sidebar-brand d-md-down-none">
         <a class="c-sidebar-brand-full h4" href="#">
             {{ trans('panel.site_title') }}
