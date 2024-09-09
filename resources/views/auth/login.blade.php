@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row justify-content-center" style="margin-top: 270px">
+    <div class="row justify-content-center" style="margin-top: 220px">
         <div class="col-md-6">
             <div class="card mx-4">
                 <div class="card-body p-4">
-                    <h1>{{ trans('panel.site_title') }}</h1>
-
+                    <center>
+                        <h1>{{ trans('panel.site_title') }}</h1>
+                    </center>
+                    <br>
                     <p class="text-muted">{{ trans('global.login') }}</p>
 
                     @if (session('message'))
@@ -74,6 +76,7 @@
                                         {{ trans('global.forgot_password') }}
                                     </a><br>
                                 @endif
+                                <br>
                                 <a class="btn btn-link px-0" href="{{ route('register') }}">
                                     {{ trans('global.register') }}
                                 </a>

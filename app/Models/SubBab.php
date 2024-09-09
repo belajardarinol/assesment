@@ -22,6 +22,7 @@ class SubBab extends Model
     protected $fillable = [
         'bab_id',
         'judul_sub_bab',
+        'sub_bab',
         'created_at',
         'updated_at',
         'deleted_at',

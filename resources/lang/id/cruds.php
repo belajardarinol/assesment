@@ -437,6 +437,8 @@ return [
             'updated_at_helper'    => ' ',
             'deleted_at'           => 'Deleted at',
             'deleted_at_helper'    => ' ',
+            'sub_bab'              => 'Sub Bab',
+            'sub_bab_helper'       => ' ',
         ],
     ],
     'materi' => [

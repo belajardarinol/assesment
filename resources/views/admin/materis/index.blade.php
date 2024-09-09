@@ -36,6 +36,9 @@
                                 {{ trans('cruds.materi.fields.id') }}
                             </th>
                             <th>
+                                Bab
+                            </th>
+                            <th>
                                 {{ trans('cruds.materi.fields.sub_bab') }}
                             </th>
                             <th>
@@ -63,6 +66,9 @@
                                 </td>
                                 <td>
                                     {{ $materi->id ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $materi->sub_bab->bab->judul_bab ?? '' }}
                                 </td>
                                 <td>
                                     {{ $materi->sub_bab->judul_sub_bab ?? '' }}

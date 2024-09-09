@@ -39,7 +39,7 @@
 </head>
 
 <body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page"
-    style="background-image: url('bg.jpg'); background-size: cover;">
+    style="background-image: url('bg.png'); background-size: cover;">
     <div class="flex-row align-items-center" style="margin-top: 10%">
         {{-- <video autoplay muted loop id="bg-video">
             <source src="bg.mp4" type="video/mp4">
