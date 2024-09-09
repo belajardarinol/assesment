@@ -76,7 +76,15 @@ trait CsvImportTrait
                     $data['keterampilan_apoteker'] = mb_convert_encoding($data['keterampilan_apoteker'], 'UTF-8', 'auto') ?? null;
                     $materi = $model::create($data);
                     if (isset($data['klasifikasi_id'])) {
-                        $materi->klasifikasis()->sync($data['klasifikasi_id']);
+                        // $data = [1,2];
+                        if (is_array($data['klasifikasi_id'])) {
+                            foreach ($data['klasifikasi_id'] as $klasifikasi) {
+                                $materi->klasifikasis()->sync([$klasifikasi]);
+                            }
+                        } else {
+                            $materi->klasifikasis()->sync([$data['klasifikasi_id']]);
+                        }
+                        // $materi->klasifikasis()->sync($data['klasifikasi_id']);
                     }
                 }
             }

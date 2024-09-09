@@ -63,6 +63,8 @@ class MateriController extends Controller
 
     public function update(Request $request, Materi $materi)
     {
+        // var_dump($request->all());
+        // die;
         $materi->update($request->all());
         $materi->klasifikasis()->sync($request->input('klasifikasis', []));
 
