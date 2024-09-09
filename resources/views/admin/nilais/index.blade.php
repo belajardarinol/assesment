@@ -10,6 +10,9 @@
                     {{ trans('global.app_csvImport') }}
                 </button>
                 @include('csvImport.modal', ['model' => 'Nilai', 'route' => 'admin.nilais.parseCsvImport'])
+                <a class="btn btn-info" data-toggle="" data-target="#" href="/template/nilai.csv">
+                    Download Template
+                </a>
             </div>
         </div>
     @endcan
