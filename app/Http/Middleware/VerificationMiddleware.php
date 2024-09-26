@@ -10,13 +10,13 @@ class VerificationMiddleware
 {
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->id !== 1) {
-            if (! auth()->user()->verified) {
-                auth()->logout();
+        // if (auth()->check() && auth()->user()->id !== 1) {
+        //     if (! auth()->user()->verified) {
+        //         auth()->logout();
 
-                return redirect()->route('login')->with('message', trans('global.verifyYourEmail'));
-            }
-        }
+        //         return redirect()->route('login')->with('message', trans('global.verifyYourEmail'));
+        //     }
+        // }
 
         return $next($request);
     }
