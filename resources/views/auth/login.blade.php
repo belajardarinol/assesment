@@ -8,7 +8,7 @@
                         {{-- <h1>{{ trans('panel.site_title') }}</h1> --}}
                         <img src="/image.png" alt="" srcset="">
                     </center>
-                    <br>
+
                     {{-- <p class="text-muted">{{ trans('global.login') }}</p> --}}
                     @if (session('message'))
                         <div class="alert alert-info" role="alert">
