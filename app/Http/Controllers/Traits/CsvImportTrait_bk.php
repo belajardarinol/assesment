@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Traits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use PhpOffice\PhpSpreadsheet\IOFactory; // Menggunakan IOFactory dari PhpSpreadsheet untuk mendukung Excel dan CSV
+use SpreadsheetReader;
 
-trait CsvImportTrait
+trait CsvImportTrait_bk
 {
     public function processCsvImport(Request $request)
     {
@@ -23,25 +23,23 @@ trait CsvImportTrait
             $modelName = $request->input('modelName', false);
             $model     = "App\Models\\" . $modelName;
 
-            // Gunakan IOFactory untuk mendukung CSV dan Excel
-            $spreadsheet = IOFactory::load($path);
-            $sheet = $spreadsheet->getActiveSheet();
+            $reader = new SpreadsheetReader($path);
             $insert = [];
 
-            foreach ($sheet->getRowIterator() as $key => $row) {
-                if ($hasHeader && $key == 1) {
+            foreach ($reader as $key => $row) {
+                if ($hasHeader && $key == 0) {
                     continue;
                 }
 
                 $tmp = [];
                 foreach ($fields as $header => $k) {
-                    $cell = $row->getCellIterator()->seek($k)->current();
-                    if ($cell !== null) {
-                        $tmp[$header] = $cell->getValue();
+                    if (isset($row[$k])) {
+                        $tmp[$header] = $row[$k];
                     }
                 }
 
                 if (count($tmp) > 0) {
+                    // $tmp['klasifikasi_id'] = $request->input('klasifikasi_id', []);
                     $insert[] = $tmp;
                 }
             }
@@ -50,10 +48,12 @@ trait CsvImportTrait
 
             foreach ($for_insert as $insert_item) {
                 foreach ($insert_item as $data) {
+                    // var_dump($data);
+                    // die;
                     $data['keterampilan_apoteker'] = mb_convert_encoding($data['keterampilan_apoteker'], 'UTF-8', 'auto') ?? null;
                     $materi = $model::create($data);
-
                     if (isset($data['klasifikasi_id'])) {
+                        // $data = [1,2];
                         if (is_array($data['klasifikasi_id'])) {
                             foreach ($data['klasifikasi_id'] as $klasifikasi) {
                                 $materi->klasifikasis()->sync([$klasifikasi]);
@@ -61,6 +61,7 @@ trait CsvImportTrait
                         } else {
                             $materi->klasifikasis()->sync([$data['klasifikasi_id']]);
                         }
+                        // $materi->klasifikasis()->sync($data['klasifikasi_id']);
                     }
                 }
             }
@@ -82,43 +83,23 @@ trait CsvImportTrait
     {
         $file = $request->file('csv_file');
         $request->validate([
-            'csv_file' => 'mimes:csv,xlsx,xls',  // Dukung file CSV dan Excel
+            'csv_file' => 'mimes:csv,txt',
         ]);
 
         $path      = $file->path();
         $hasHeader = $request->input('header', false) ? true : false;
 
-        // Gunakan IOFactory untuk mendukung berbagai format file
-        $spreadsheet = IOFactory::load($path);
-        $sheet = $spreadsheet->getActiveSheet();
-        $headers = $sheet->rangeToArray('A1:Z1', null, true, true, true)[1]; // Ambil header dari baris pertama
+        $reader  = new SpreadsheetReader($path);
+        $headers = $reader->current();
         $lines   = [];
 
         $i = 0;
-        // foreach ($sheet->getRowIterator(2) as $row) {
-        //     if ($i < 5) {
-        //         $lines[] = $sheet->rangeToArray('A' . $row->getRowIndex() . ':Z' . $row->getRowIndex(), null, true, true, true)[1];
-        //         $i++;
-        //     } else {
-        //         break;
-        //     }
-        // }
-        foreach ($sheet->getRowIterator(2) as $row) {
-            $rowData = $sheet->rangeToArray('A' . $row->getRowIndex() . ':Z' . $row->getRowIndex(), null, true, true, true);
-
-            // Pastikan rowData memiliki data sebelum mengakses index 1
-            if (isset($rowData[1])) {
-                $lines[] = $rowData[1];
-            }
-
-            // Batasi jumlah baris yang dibaca, misalnya hanya 5 baris
-            if ($i++ >= 5) {
-                break;
-            }
+        while ($reader->next() !== false && $i < 5) {
+            $lines[] = $reader->current();
+            $i++;
         }
 
-
-        $filename = Str::random(10) . '.' . $file->getClientOriginalExtension();
+        $filename = Str::random(10) . '.csv';
         $file->storeAs('csv_import', $filename);
 
         $modelName     = $request->input('model', false);
