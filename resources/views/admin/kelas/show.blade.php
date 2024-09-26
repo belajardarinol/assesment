@@ -24,10 +24,10 @@
                         </tr>
                         <tr>
                             <th>
-                                {{ trans('cruds.kela.fields.name') }}
+                                {{ trans('cruds.kela.fields.nama_kelas') }}
                             </th>
                             <td>
-                                {{ $kela->name }}
+                                {{ $kela->nama_kelas }}
                             </td>
                         </tr>
                     </tbody>

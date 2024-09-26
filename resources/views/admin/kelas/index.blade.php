@@ -26,7 +26,7 @@
                                 {{ trans('cruds.kela.fields.id') }}
                             </th>
                             <th>
-                                {{ trans('cruds.kela.fields.name') }}
+                                {{ trans('cruds.kela.fields.nama_kelas') }}
                             </th>
                             <th>
                                 &nbsp;
@@ -43,7 +43,7 @@
                                     {{ $kela->id ?? '' }}
                                 </td>
                                 <td>
-                                    {{ $kela->name ?? '' }}
+                                    {{ $kela->nama_kelas ?? '' }}
                                 </td>
                                 <td>
                                     @can('kela_show')

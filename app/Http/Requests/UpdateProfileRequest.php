@@ -31,6 +31,9 @@ class UpdateProfileRequest extends FormRequest
         return [
             'name'  => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . auth()->id()],
+            'nidn'  => ['nullable', 'string', 'max:255'],
+            'kelas_id' => ['nullable', 'integer', Rule::exists('kelas', 'id')],
+            'nim'   => ['nullable', 'string', 'max:255'],
         ];
     }
 }

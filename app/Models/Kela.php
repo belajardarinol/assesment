@@ -21,6 +21,7 @@ class Kela extends Model
 
     protected $fillable = [
         'name',
+        'nama_kelas',
         'created_at',
         'updated_at',
         'deleted_at',

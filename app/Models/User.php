@@ -56,6 +56,9 @@ class User extends Authenticatable
         'temp_id',
         'temp_status',
         'two_factor_expires_at',
+        'nim',
+        'kelas_id',
+        'nidn',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
@@ -169,5 +172,10 @@ class User extends Authenticatable
     public function setTwoFactorExpiresAtAttribute($value)
     {
         $this->attributes['two_factor_expires_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kela::class, 'kelas_id');
     }
 }

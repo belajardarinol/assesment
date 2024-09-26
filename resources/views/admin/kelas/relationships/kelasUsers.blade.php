@@ -25,7 +25,7 @@
                             {{ trans('cruds.user.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.name') }}
+                            {{ trans('cruds.user.fields.nama_kelas') }}
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.email') }}
@@ -57,7 +57,7 @@
                                 {{ $user->id ?? '' }}
                             </td>
                             <td>
-                                {{ $user->name ?? '' }}
+                                {{ $user->nama_kelas ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
@@ -74,7 +74,7 @@
                                 {{ $user->nim ?? '' }}
                             </td>
                             <td>
-                                {{ $user->kelas->name ?? '' }}
+                                {{ $user->kelas->nama_kelas ?? '' }}
                             </td>
                             <td>
                                 @can('user_show')

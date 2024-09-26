@@ -23,6 +23,22 @@ class SubBabController extends Controller
         return view('admin.subBabs.index', compact('subBabs'));
     }
 
+    public function getSubBab(Request $request)
+    {
+        // Validasi request untuk memastikan id bab ada
+        $request->validate([
+            'bab_id' => 'required|exists:babs,id',
+        ]);
+
+        // Ambil sub-babs berdasarkan bab_id yang dikirim dari frontend
+        $subBabs = SubBab::where('bab_id', $request->bab_id)
+            ->select('id', 'judul_sub_bab')
+            ->get();
+
+        // Kembalikan data dalam format JSON
+        return response()->json($subBabs);
+    }
+
     public function create()
     {
         abort_if(Gate::denies('sub_bab_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -34,7 +50,22 @@ class SubBabController extends Controller
 
     public function store(Request $request)
     {
-        $subBab = SubBab::create($request->all());
+        $data = $request->all();
+        if ($request->bab_id == null) {
+            return redirect()->back()->with('error', 'Pilih Bab terlebih dahulu');
+        }
+        if ($request->sub_bab != null) {
+            // echo 111;
+            $sub = SubBab::where('bab_id', $request->bab_id)->first();
+            // var_dump($sub->judul_sub_bab);
+            $subBab = $sub->judul_sub_bab;
+            $data['judul_sub_bab'] = $subBab;
+            // var_dump($request->judul_sub_bab);
+            // die;
+        }
+        // var_dump($data);
+        // die;
+        $subBab = SubBab::create($data);
 
         return redirect()->route('admin.sub-babs.index');
     }

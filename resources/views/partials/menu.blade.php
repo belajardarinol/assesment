@@ -195,11 +195,11 @@
                 </a>
             </li>
         @endcan --}}
-        {{-- @can('mata_kuliah_access')
+        @can('mata_kuliah_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.mata-kuliahs.index') }}"
                     class="c-sidebar-nav-link {{ request()->is('admin/mata-kuliahs') || request()->is('admin/mata-kuliahs/*') ? 'c-active' : '' }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-book c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.mataKuliah.title') }}
@@ -210,13 +210,13 @@
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.kelas.index') }}"
                     class="c-sidebar-nav-link {{ request()->is('admin/kelas') || request()->is('admin/kelas/*') ? 'c-active' : '' }}">
-                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+                    <i class="fa-fw fas fa-pen c-sidebar-nav-icon">
 
                     </i>
                     {{ trans('cruds.kela.title') }}
                 </a>
             </li>
-        @endcan --}}
+        @endcan
         @can('nilai_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route('admin.nilais.index') }}"

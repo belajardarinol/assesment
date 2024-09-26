@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\SubBabController;
+
+
 Route::get('test', function () {
     return 'ok';
 });
@@ -14,6 +17,7 @@ Route::get('/home', function () {
 
 Route::get('users/kembali', 'Admin\UsersController@kembali')->name('users.kembali');
 Route::get('reset', 'Admin\UsersController@reset');
+Route::post('/getSub-bab', [SubBabController::class, 'getSubBab'])->name('sub-bab.get');
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();

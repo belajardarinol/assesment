@@ -83,6 +83,8 @@ return [
             'nim_helper'               => ' ',
             'kelas'                    => 'Kelas',
             'kelas_helper'             => ' ',
+            'nidn'                     => 'NIDN',
+            'nidn_helper'              => ' ',
         ],
     ],
     'cpl' => [
@@ -143,12 +145,14 @@ return [
     ],
     'kela' => [
         'title'          => 'Kelas',
-        'title_singular' => 'Kela',
+        'title_singular' => 'Kelas',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
             'name'              => 'Name',
             'name_helper'       => ' ',
+            'nama_kelas'        => 'Nama Kelas',
+            'nama_kelas_helper' => ' ',
             'created_at'        => 'Created at',
             'created_at_helper' => ' ',
             'updated_at'        => 'Updated at',

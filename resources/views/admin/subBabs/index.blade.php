@@ -32,6 +32,9 @@
                                 {{ trans('cruds.subBab.fields.judul_sub_bab') }}
                             </th>
                             <th>
+                                Sub Bab
+                            </th>
+                            <th>
                                 &nbsp;
                             </th>
                         </tr>
@@ -50,6 +53,9 @@
                                 </td>
                                 <td>
                                     {{ $subBab->judul_sub_bab ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $subBab->sub_bab ?? '' }}
                                 </td>
                                 <td>
                                     @can('sub_bab_show')
