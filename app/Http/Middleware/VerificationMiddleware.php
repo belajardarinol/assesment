@@ -10,7 +10,7 @@ class VerificationMiddleware
 {
     public function handle($request, Closure $next)
     {
-        if (auth()->check()) {
+        if (auth()->check() && auth()->user()->id !== 1) {
             if (! auth()->user()->verified) {
                 auth()->logout();
 
