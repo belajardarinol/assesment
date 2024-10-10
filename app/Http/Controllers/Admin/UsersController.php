@@ -25,6 +25,14 @@ class UsersController extends Controller
 
         return view('admin.users.index', compact('users'));
     }
+    public function dosen()
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $users = User::with(['roles', 'team'])->get();
+
+        return view('admin.users.dosen', compact('users'));
+    }
 
     public function reset()
     {

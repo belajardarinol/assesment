@@ -57,7 +57,9 @@
                 </div>
 
                 <button class="btn btn-success" type="button" id="add_sub_bab_button">Add Sub Bab</button>
-
+                <!-- Tombol Cancel (disembunyikan awalnya) -->
+                <button class="btn btn-secondary" type="button" id="cancel_sub_bab_button"
+                    style="display: none;">Cancel</button>
                 <div class="form-group mt-4">
                     <button class="btn btn-danger" type="submit">
                         {{ trans('global.save') }}
@@ -136,6 +138,28 @@
             // Tampilkan Select Sub Bab dan input teks untuk Sub Bab
             document.getElementById('select_sub_bab_group').style.display = 'block';
             document.getElementById('sub_bab_group').style.display = 'block';
+
+            // Tampilkan tombol Cancel
+            document.getElementById('cancel_sub_bab_button').style.display = 'inline-block';
+
+            // Sembunyikan tombol Add Sub Bab
+            document.getElementById('add_sub_bab_button').style.display = 'none';
+        });
+
+        // Event listener untuk ketika tombol "Cancel" diklik
+        document.getElementById('cancel_sub_bab_button').addEventListener('click', function() {
+            // Tampilkan kembali input teks untuk Judul Sub Bab
+            document.getElementById('judul_sub_bab_group').style.display = 'block';
+
+            // Sembunyikan Select Sub Bab dan input teks untuk Sub Bab
+            document.getElementById('select_sub_bab_group').style.display = 'none';
+            document.getElementById('sub_bab_group').style.display = 'none';
+
+            // Sembunyikan tombol Cancel
+            document.getElementById('cancel_sub_bab_button').style.display = 'none';
+
+            // Tampilkan kembali tombol Add Sub Bab
+            document.getElementById('add_sub_bab_button').style.display = 'inline-block';
         });
     </script>
 @endsection
