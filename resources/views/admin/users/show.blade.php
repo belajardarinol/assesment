@@ -8,11 +8,11 @@
         <div class="card-body">
             <div class="form-group">
                 <div class="form-group">
-                    <a class="btn btn-default" href="{{ route('admin.users.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.users.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                     @if (Auth::id() == 1)
-                        <a class="btn btn-success" href="{{ route('admin.users.masuk', $user->id) }}">
+                        <a class="rounded-pill btn btn-success" href="{{ route('admin.users.masuk', $user->id) }}">
                             Masuk Sebagai {{ $user->name }}
                         </a>
                     @endif
@@ -359,7 +359,7 @@
                     });
                 </script> --}}
                 <div class="form-group">
-                    <a class="btn btn-default" href="{{ route('admin.users.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.users.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>

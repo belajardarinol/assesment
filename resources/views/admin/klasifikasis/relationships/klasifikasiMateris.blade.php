@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="form-group">
                 <div class="form-group">
-                    <a class="btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>
@@ -57,7 +57,7 @@
                     </tbody>
                 </table>
                 <div class="form-group">
-                    <a class="btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>

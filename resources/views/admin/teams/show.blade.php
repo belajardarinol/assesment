@@ -8,7 +8,7 @@
         <div class="card-body">
             <div class="form-group">
                 <div class="form-group">
-                    <a class="btn btn-success" href="{{ route('admin.teams.masuk', $team->id) }}">
+                    <a class="rounded-pill btn btn-success" href="{{ route('admin.teams.masuk', $team->id) }}">
                         Masuk Sebagai {{ $team->name }}
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                     </tbody>
                 </table>
                 <div class="form-group">
-                    <a class="btn btn-default" href="{{ route('admin.teams.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.teams.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>

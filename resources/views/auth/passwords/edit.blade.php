@@ -71,7 +71,7 @@
                             <span class="help-block">{{ trans('cruds.user.fields.kelas_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-danger" type="submit">
+                            <button class="rounded-pill btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>
                         </div>
@@ -105,7 +105,7 @@
                                 id="password_confirmation" required>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-danger" type="submit">
+                            <button class="rounded-pill btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>
                         </div>
@@ -126,7 +126,7 @@
                         onsubmit="return prompt('{{ __('global.delete_account_warning') }}') == '{{ auth()->user()->email }}'">
                         @csrf
                         <div class="form-group">
-                            <button class="btn btn-danger" type="submit">
+                            <button class="rounded-pill btn btn-danger" type="submit">
                                 {{ trans('global.delete') }}
                             </button>
                         </div>
@@ -145,7 +145,7 @@
                         <form method="POST" action="{{ route('profile.password.toggleTwoFactor') }}">
                             @csrf
                             <div class="form-group">
-                                <button class="btn btn-danger" type="submit">
+                                <button class="rounded-pill btn btn-danger" type="submit">
                                     {{ auth()->user()->two_factor ? trans('global.two_factor.disable') : trans('global.two_factor.enable') }}
                                 </button>
                             </div>

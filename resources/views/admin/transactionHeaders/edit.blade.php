@@ -76,16 +76,19 @@
                             <label for="amount-{{ $index }}">Amount (IDR)</label>
                             <input type="number" class="form-control" id="amount-{{ $index }}"
                                 name="details[{{ $index }}][amount]" value="{{ $detail->amount }}" required>
-                            <button type="button" class="btn btn-danger remove-detail">Remove</button>
+                            <button type="button" class="rounded-pill btn btn-danger remove-detail">Remove</button>
                         </div>
                     @endforeach
-                    <button type="button" class="btn btn-primary mb-2" id="add-detail">Add Detail</button>
+                    <button type="button" class="rounded-pill btn btn-primary mb-2" id="add-detail">Add Detail</button>
                 </div>
 
                 <div class="form-group">
-                    <button class="btn btn-danger" type="submit">
+                    <button class="rounded-pill btn btn-danger" type="submit">
                         {{ trans('global.save') }}
                     </button>
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                        {{ trans('global.back_to_list') }}
+                    </a>
                 </div>
             </form>
         </div>
@@ -106,7 +109,7 @@
             <label for="amount-TEMPLATE_INDEX">Amount (IDR)</label>
             <input type="number" class="form-control" id="amount-TEMPLATE_INDEX" name="details[TEMPLATE_INDEX][amount]"
                 required>
-            <button type="button" class="btn btn-danger remove-detail">Remove</button>
+            <button type="button" class="rounded-pill btn btn-danger remove-detail">Remove</button>
         </div>
     </div>
 

@@ -66,18 +66,18 @@
 
                         <div class="row">
                             <div class="col-6">
-                                <button type="submit" class="btn btn-primary px-4">
+                                <button type="submit" class="rounded-pill btn btn-primary px-4">
                                     {{ trans('global.login') }}
                                 </button>
                             </div>
                             <div class="col-6 text-right">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link px-0" href="{{ route('password.request') }}">
+                                    <a class="rounded-pill btn btn-link px-0" href="{{ route('password.request') }}">
                                         {{ trans('global.forgot_password') }}
                                     </a><br>
                                 @endif
                                 <br>
-                                <a class="btn btn-link px-0" href="{{ route('register') }}">
+                                <a class="rounded-pill btn btn-link px-0" href="{{ route('register') }}">
                                     {{ trans('global.register') }}
                                 </a>
                             </div>

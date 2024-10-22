@@ -1,7 +1,7 @@
 @can('transaction_header_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.transaction-headers.create') }}">
+            <a class="rounded-pill btn btn-success" href="{{ route('admin.transaction-headers.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.transactionHeader.title_singular') }}
             </a>
         </div>
@@ -79,14 +79,14 @@
                             </td>
                             <td>
                                 @can('transaction_header_show')
-                                    <a class="btn btn-xs btn-primary"
+                                    <a class="rounded-pill btn btn-xs btn-primary"
                                         href="{{ route('admin.transaction-headers.show', $transactionHeader->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('transaction_header_edit')
-                                    <a class="btn btn-xs btn-info"
+                                    <a class="rounded-pill btn btn-xs btn-info"
                                         href="{{ route('admin.transaction-headers.edit', $transactionHeader->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
@@ -98,7 +98,7 @@
                                         style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger"
+                                        <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                             value="{{ trans('global.delete') }}">
                                     </form>
                                 @endcan
@@ -123,7 +123,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.transaction-headers.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true

@@ -56,14 +56,17 @@
                     <span class="help-block">{{ trans('cruds.subBab.fields.sub_bab_helper') }}</span>
                 </div>
 
-                <button class="btn btn-success" type="button" id="add_sub_bab_button">Add Sub Bab</button>
+                <button class="rounded-pill btn btn-success" type="button" id="add_sub_bab_button">Add Sub Bab</button>
                 <!-- Tombol Cancel (disembunyikan awalnya) -->
-                <button class="btn btn-secondary" type="button" id="cancel_sub_bab_button"
+                <button class="rounded-pill btn btn-secondary" type="button" id="cancel_sub_bab_button"
                     style="display: none;">Cancel</button>
                 <div class="form-group mt-4">
-                    <button class="btn btn-danger" type="submit">
+                    <button class="rounded-pill btn btn-danger" type="submit">
                         {{ trans('global.save') }}
                     </button>
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                        {{ trans('global.back_to_list') }}
+                    </a>
                 </div>
             </form>
         </div>

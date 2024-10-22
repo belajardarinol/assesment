@@ -1,7 +1,7 @@
 @can('user_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.users.create') }}">
+            <a class="rounded-pill btn btn-success" href="{{ route('admin.users.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.user.title_singular') }}
             </a>
         </div>
@@ -78,13 +78,15 @@
                             </td>
                             <td>
                                 @can('user_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.users.show', $user->id) }}">
+                                    <a class="rounded-pill btn btn-xs btn-primary"
+                                        href="{{ route('admin.users.show', $user->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('user_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.users.edit', $user->id) }}">
+                                    <a class="rounded-pill btn btn-xs btn-info"
+                                        href="{{ route('admin.users.edit', $user->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
@@ -95,7 +97,7 @@
                                         style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger"
+                                        <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                             value="{{ trans('global.delete') }}">
                                     </form>
                                 @endcan
@@ -120,7 +122,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.users.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true

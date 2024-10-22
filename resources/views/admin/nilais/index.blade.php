@@ -3,14 +3,14 @@
     @can('nilai_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.nilais.create') }}">
+                <a class="rounded-pill btn btn-success" href="{{ route('admin.nilais.create') }}">
                     {{ trans('global.add') }} {{ trans('cruds.nilai.title_singular') }}
                 </a>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                <button class="rounded-pill btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
                     {{ trans('global.app_csvImport') }}
                 </button>
                 @include('csvImport.modal', ['model' => 'Nilai', 'route' => 'admin.nilais.parseCsvImport'])
-                <a class="btn btn-info" data-toggle="" data-target="#" href="/template/template_nilai.csv">
+                <a class="rounded-pill btn btn-info" data-toggle="" data-target="#" href="/template/template_nilai.csv">
                     Download Template
                 </a>
             </div>
@@ -36,6 +36,9 @@
                                 {{ trans('cruds.nilai.fields.name') }}
                             </th>
                             <th>
+                                Bab
+                            </th>
+                            <th>
                                 Materi
                             </th>
                             <th>
@@ -59,6 +62,9 @@
                                     {{ \App\Models\User::find($nilai->user_id)->name ?? '' }}
                                 </td>
                                 <td>
+                                    {{ \App\Models\Bab::where('id', $nilai->materi_id)->first()->judul_bab ?? '' }}
+                                </td>
+                                <td>
                                     {{ \App\Models\Materi::find($nilai->materi_id)->keterampilan_apoteker ?? '' }}
                                 </td>
                                 <td>
@@ -66,13 +72,15 @@
                                 </td>
                                 <td>
                                     @can('nilai_show')
-                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.nilais.show', $nilai->id) }}">
+                                        <a class="rounded-pill btn btn-xs btn-primary"
+                                            href="{{ route('admin.nilais.show', $nilai->id) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
 
                                     @can('nilai_edit')
-                                        <a class="btn btn-xs btn-info" href="{{ route('admin.nilais.edit', $nilai->id) }}">
+                                        <a class="rounded-pill btn btn-xs btn-info"
+                                            href="{{ route('admin.nilais.edit', $nilai->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
@@ -83,7 +91,7 @@
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
+                                            <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                                 value="{{ trans('global.delete') }}">
                                         </form>
                                     @endcan
@@ -108,7 +116,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.nilais.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true

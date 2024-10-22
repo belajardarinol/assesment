@@ -72,12 +72,12 @@
                     {{-- Univ : {{ Auth::user()->team->name }} | --}}
                 @endif
                 @if (Auth::id() == 1 && Auth::user()->team != null)
-                    <a class="btn btn-link" href="{{ route('admin.teams.kembali') }}">
+                    <a class="rounded-pill btn btn-link" href="{{ route('admin.teams.kembali') }}">
                         Kembali Sebagai Super Admin
                     </a>
                 @endif
                 @if (\App\Models\User::find(1)->temp_status == 1)
-                    <a class="btn btn-link" href="{{ route('users.kembali') }}">
+                    <a class="rounded-pill btn btn-link" href="{{ route('users.kembali') }}">
                         Kembali Sebagai Super Admin
                     </a>
                 @endif
@@ -181,7 +181,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
-    <script>
+    {{-- <script>
         $(function() {
             let copyButtonTrans = '{{ trans('global.datatables.copy') }}'
             let csvButtonTrans = '{{ trans('global.datatables.csv') }}'
@@ -197,7 +197,7 @@
             };
 
             $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, {
-                className: 'btn'
+                className: 'rounded-pill btn btn'
             })
             $.extend(true, $.fn.dataTable.defaults, {
                 language: {
@@ -222,7 +222,7 @@
                 dom: 'lBfrtip<"actions">',
                 buttons: [{
                         extend: 'selectAll',
-                        className: 'btn-primary',
+                        className: 'rounded-pill btn btn-primary',
                         text: selectAllButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -237,7 +237,7 @@
                     },
                     {
                         extend: 'selectNone',
-                        className: 'btn-primary',
+                        className: 'rounded-pill btn btn-primary',
                         text: selectNoneButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -245,7 +245,7 @@
                     },
                     {
                         extend: 'copy',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: copyButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -253,7 +253,7 @@
                     },
                     {
                         extend: 'csv',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: csvButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -261,7 +261,7 @@
                     },
                     {
                         extend: 'excel',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: excelButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -269,7 +269,7 @@
                     },
                     {
                         extend: 'pdf',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: pdfButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -277,7 +277,7 @@
                     },
                     {
                         extend: 'print',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: printButtonTrans,
                         exportOptions: {
                             columns: ':visible'
@@ -285,8 +285,125 @@
                     },
                     {
                         extend: 'colvis',
-                        className: 'btn-default',
+                        className: 'rounded-pill btn btn-default',
                         text: colvisButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    }
+                ]
+            });
+
+            $.fn.dataTable.ext.classes.sPageButton = '';
+        });
+    </script> --}}
+    <script>
+        $(function() {
+            let copyButtonTrans = '{{ trans('global.datatables.copy') }}';
+            let csvButtonTrans = '{{ trans('global.datatables.csv') }}';
+            let excelButtonTrans = '{{ trans('global.datatables.excel') }}';
+            let pdfButtonTrans = '{{ trans('global.datatables.pdf') }}';
+            let printButtonTrans = '{{ trans('global.datatables.print') }}';
+            let colvisButtonTrans = '{{ trans('global.datatables.colvis') }}';
+            let selectAllButtonTrans = '{{ trans('global.select_all') }}';
+            let selectNoneButtonTrans = '{{ trans('global.deselect_all') }}';
+
+            let languages = {
+                'id': 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Indonesian.json'
+            };
+
+            $.extend(true, $.fn.dataTable.Buttons.defaults.dom.button, {
+                className: 'rounded-pill btn btn'
+            });
+
+            $.extend(true, $.fn.dataTable.defaults, {
+                language: {
+                    url: languages['{{ app()->getLocale() }}']
+                },
+                columnDefs: [{
+                        orderable: false,
+                        className: 'select-checkbox',
+                        targets: 0
+                    },
+                    {
+                        orderable: false,
+                        searchable: false,
+                        targets: -1
+                    }
+                ],
+                select: {
+                    style: 'multi+shift',
+                    selector: 'td:first-child'
+                },
+                order: [],
+                scrollX: true,
+                pageLength: 100,
+                dom: 'lBfrtip<"actions">',
+                buttons: [{
+                        extend: 'collection',
+                        text: 'Export Options',
+                        className: 'rounded-pill btn btn-default',
+                        buttons: [{
+                                extend: 'copy',
+                                text: copyButtonTrans,
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            },
+                            {
+                                extend: 'csv',
+                                text: csvButtonTrans,
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            },
+                            {
+                                extend: 'excel',
+                                text: excelButtonTrans,
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            },
+                            {
+                                extend: 'pdf',
+                                text: pdfButtonTrans,
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            },
+                            {
+                                extend: 'print',
+                                text: printButtonTrans,
+                                exportOptions: {
+                                    columns: ':visible'
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        extend: 'colvis',
+                        className: 'rounded-pill btn btn-default',
+                        text: colvisButtonTrans,
+                        exportOptions: {
+                            columns: ':visible'
+                        }
+                    },
+                    {
+                        extend: 'selectAll',
+                        className: 'rounded-pill btn btn-primary',
+                        text: selectAllButtonTrans,
+                        action: function(e, dt) {
+                            e.preventDefault();
+                            dt.rows().deselect();
+                            dt.rows({
+                                search: 'applied'
+                            }).select();
+                        }
+                    },
+                    {
+                        extend: 'selectNone',
+                        className: 'rounded-pill btn btn-primary',
+                        text: selectNoneButtonTrans,
                         exportOptions: {
                             columns: ':visible'
                         }

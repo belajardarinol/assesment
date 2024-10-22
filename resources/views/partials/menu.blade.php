@@ -249,10 +249,8 @@
                 </a>
             </li>
         @endcan --}}
-        @can('team_delete')
-            @if (
-                \Illuminate\Support\Facades\Schema::hasColumn('teams', 'owner_id') &&
-                    \App\Models\Team::where('owner_id', auth()->user()->id)->exists())
+        {{-- @can('team_delete')
+            @if (\Illuminate\Support\Facades\Schema::hasColumn('teams', 'owner_id') && \App\Models\Team::where('owner_id', auth()->user()->id)->exists())
                 <li class="c-sidebar-nav-item">
                     <a class="{{ request()->is('admin/team-members') || request()->is('admin/team-members/*') ? 'c-active' : '' }} c-sidebar-nav-link"
                         href="{{ route('admin.team-members.index') }}">
@@ -262,7 +260,7 @@
                     </a>
                 </li>
             @endif
-        @endcan
+        @endcan --}}
         @if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">

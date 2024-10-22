@@ -3,17 +3,17 @@
     @can('materi_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.materis.create') }}">
+                <a class="rounded-pill btn btn-success" href="{{ route('admin.materis.create') }}">
                     {{ trans('global.add') }} {{ trans('cruds.materi.title_singular') }}
                 </a>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                <button class="rounded-pill btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
                     {{ trans('global.app_csvImport') }}
                 </button>
                 @include('csvImport.modal', [
                     'model' => 'Materi',
                     'route' => 'admin.materis.parseCsvImport',
                 ])
-                <a class="btn btn-info" data-toggle="" data-target="#" href="/template/template_materi.csv">
+                <a class="rounded-pill btn btn-info" data-toggle="" data-target="#" href="/template/template_materi.csv">
                     Download Template
                 </a>
             </div>
@@ -93,14 +93,15 @@
                                 </td>
                                 <td>
                                     @can('materi_show')
-                                        <a class="btn btn-xs btn-primary"
+                                        <a class="rounded-pill btn btn-xs btn-primary"
                                             href="{{ route('admin.materis.show', $materi->id) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
 
                                     @can('materi_edit')
-                                        <a class="btn btn-xs btn-info" href="{{ route('admin.materis.edit', $materi->id) }}">
+                                        <a class="rounded-pill btn btn-xs btn-info"
+                                            href="{{ route('admin.materis.edit', $materi->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
@@ -111,7 +112,7 @@
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
+                                            <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                                 value="{{ trans('global.delete') }}">
                                         </form>
                                     @endcan
@@ -136,7 +137,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.materis.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true

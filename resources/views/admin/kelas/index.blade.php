@@ -3,7 +3,7 @@
     @can('kela_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.kelas.create') }}">
+                <a class="rounded-pill btn btn-success" href="{{ route('admin.kelas.create') }}">
                     {{ trans('global.add') }} {{ trans('cruds.kela.title_singular') }}
                 </a>
             </div>
@@ -47,13 +47,15 @@
                                 </td>
                                 <td>
                                     @can('kela_show')
-                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.kelas.show', $kela->id) }}">
+                                        <a class="rounded-pill btn btn-xs btn-primary"
+                                            href="{{ route('admin.kelas.show', $kela->id) }}">
                                             {{ trans('global.view') }}
                                         </a>
                                     @endcan
 
                                     @can('kela_edit')
-                                        <a class="btn btn-xs btn-info" href="{{ route('admin.kelas.edit', $kela->id) }}">
+                                        <a class="rounded-pill btn btn-xs btn-info"
+                                            href="{{ route('admin.kelas.edit', $kela->id) }}">
                                             {{ trans('global.edit') }}
                                         </a>
                                     @endcan
@@ -64,7 +66,7 @@
                                             style="display: inline-block;">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <input type="submit" class="btn btn-xs btn-danger"
+                                            <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                                 value="{{ trans('global.delete') }}">
                                         </form>
                                     @endcan
@@ -89,7 +91,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.kelas.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true

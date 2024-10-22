@@ -52,9 +52,9 @@
                 <div class="form-group">
                     <label for="klasifikasis">{{ trans('cruds.materi.fields.klasifikasi') }}</label>
                     <div style="padding-bottom: 4px">
-                        <span class="btn btn-info btn-xs select-all"
+                        <span class="rounded-pill btn btn-info btn-xs select-all"
                             style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                        <span class="btn btn-info btn-xs deselect-all"
+                        <span class="rounded-pill btn btn-info btn-xs deselect-all"
                             style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
                     </div>
                     <select class="form-control select2 {{ $errors->has('klasifikasis') ? 'is-invalid' : '' }}"
@@ -74,9 +74,12 @@
                     <span class="help-block">{{ trans('cruds.materi.fields.klasifikasi_helper') }}</span>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-danger" type="submit">
+                    <button class="rounded-pill btn btn-danger" type="submit">
                         {{ trans('global.save') }}
                     </button>
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                        {{ trans('global.back_to_list') }}
+                    </a>
                 </div>
             </form>
         </div>

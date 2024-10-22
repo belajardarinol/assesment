@@ -1,7 +1,7 @@
 @can('sub_bab_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.sub-babs.create') }}">
+            <a class="rounded-pill btn btn-success" href="{{ route('admin.sub-babs.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.subBab.title_singular') }}
             </a>
         </div>
@@ -52,14 +52,15 @@
                             </td>
                             <td>
                                 @can('sub_bab_show')
-                                    <a class="btn btn-xs btn-primary"
+                                    <a class="rounded-pill btn btn-xs btn-primary"
                                         href="{{ route('admin.sub-babs.show', $subBab->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
                                 @can('sub_bab_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.sub-babs.edit', $subBab->id) }}">
+                                    <a class="rounded-pill btn btn-xs btn-info"
+                                        href="{{ route('admin.sub-babs.edit', $subBab->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
@@ -70,7 +71,7 @@
                                         style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger"
+                                        <input type="submit" class="rounded-pill btn btn-xs btn-danger"
                                             value="{{ trans('global.delete') }}">
                                     </form>
                                 @endcan
@@ -95,7 +96,7 @@
                 let deleteButton = {
                     text: deleteButtonTrans,
                     url: "{{ route('admin.sub-babs.massDestroy') }}",
-                    className: 'btn-danger',
+                    className: 'rounded-pill btn btn-danger',
                     action: function(e, dt, node, config) {
                         var ids = $.map(dt.rows({
                             selected: true
