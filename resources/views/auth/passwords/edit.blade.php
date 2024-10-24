@@ -30,46 +30,49 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label for="nidn">{{ trans('cruds.user.fields.nidn') }}</label>
-                            <input class="form-control {{ $errors->has('nidn') ? 'is-invalid' : '' }}" type="text"
-                                name="nidn" id="nidn" value="{{ old('nidn', $user->nidn) }}">
-                            @if ($errors->has('nidn'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('nidn') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.nidn_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="nim">{{ trans('cruds.user.fields.nim') }}</label>
-                            <input class="form-control {{ $errors->has('nim') ? 'is-invalid' : '' }}" type="text"
-                                name="nim" id="nim" value="{{ old('nim', $user->nim) }}">
-                            @if ($errors->has('nim'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('nim') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.nim_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="kelas_id">{{ trans('cruds.user.fields.kelas') }}</label>
-                            {{-- {{ auth()->user()->kelas->nama_kelas }} --}}
-                            <select class="form-control select2 {{ $errors->has('kelas') ? 'is-invalid' : '' }}"
-                                name="kelas_id" id="kelas_id">
-                                @foreach ($kelas as $id => $entry)
-                                    <option value="{{ $id }}"
-                                        {{ (old('kelas_id') ? old('kelas_id') : $user->kelas->id ?? '') == $id ? 'selected' : '' }}>
-                                        {{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('kelas'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('kelas') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.user.fields.kelas_helper') }}</span>
-                        </div>
+                        @if (Auth::user()->roles()->first()->id == 3)
+                            <div class="form-group">
+                                <label for="nidn">{{ trans('cruds.user.fields.nidn') }}</label>
+                                <input class="form-control {{ $errors->has('nidn') ? 'is-invalid' : '' }}" type="text"
+                                    name="nidn" id="nidn" value="{{ old('nidn', $user->nidn) }}">
+                                @if ($errors->has('nidn'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('nidn') }}
+                                    </div>
+                                @endif
+                                <span class="help-block">{{ trans('cruds.user.fields.nidn_helper') }}</span>
+                            </div>
+                        @endif
+                        @if (Auth::user()->roles()->first()->id == 2)
+                            <div class="form-group">
+                                <label for="nim">{{ trans('cruds.user.fields.nim') }}</label>
+                                <input class="form-control {{ $errors->has('nim') ? 'is-invalid' : '' }}" type="text"
+                                    name="nim" id="nim" value="{{ old('nim', $user->nim) }}">
+                                @if ($errors->has('nim'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('nim') }}
+                                    </div>
+                                @endif
+                                <span class="help-block">{{ trans('cruds.user.fields.nim_helper') }}</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="kelas_id">{{ trans('cruds.user.fields.kelas') }}</label>
+                                <select class="form-control select2 {{ $errors->has('kelas') ? 'is-invalid' : '' }}"
+                                    name="kelas_id" id="kelas_id">
+                                    @foreach ($kelas as $id => $entry)
+                                        <option value="{{ $id }}"
+                                            {{ (old('kelas_id') ? old('kelas_id') : $user->kelas->id ?? '') == $id ? 'selected' : '' }}>
+                                            {{ $entry }}</option>
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('kelas'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('kelas') }}
+                                    </div>
+                                @endif
+                                <span class="help-block">{{ trans('cruds.user.fields.kelas_helper') }}</span>
+                            </div>
+                        @endif
                         <div class="form-group">
                             <button class="rounded-pill btn btn-danger" type="submit">
                                 {{ trans('global.save') }}

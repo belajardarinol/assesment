@@ -10,6 +10,7 @@ use App\Models\Role;
 use App\Models\Team;
 use App\Models\User;
 use App\Models\Materi;
+use App\Models\Kela;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -111,7 +112,10 @@ class UsersController extends Controller
 
         $user->load('roles', 'team');
 
-        return view('admin.users.edit', compact('roles', 'teams', 'user'));
+        $kelas = Kela::pluck('nama_kelas', 'id')->prepend(trans('global.pleaseSelect'), '');
+        // $kelas = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.users.edit', compact('roles', 'teams', 'user', 'kelas'));
     }
 
     public function update(UpdateUserRequest $request, User $user)

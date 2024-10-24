@@ -9,6 +9,7 @@ use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\Kela;
+use App\Models\User;
 
 class ChangePasswordController extends Controller
 {
@@ -16,7 +17,7 @@ class ChangePasswordController extends Controller
     {
         abort_if(Gate::denies('profile_password_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         $user = auth()->user();
-        $kelas = Kela::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $kelas = Kela::pluck('nama_kelas', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('auth.passwords.edit', compact('user', 'kelas'));
     }

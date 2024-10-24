@@ -36,4 +36,9 @@ class Kela extends Model
     {
         return $this->hasMany(User::class, 'kelas_id', 'id');
     }
+
+    public function siswa()
+    {
+        return $this->belongsTo(User::class, 'siswa_id');
+    }
 }
