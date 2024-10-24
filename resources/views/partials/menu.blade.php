@@ -112,6 +112,16 @@
                                 {{ 'Daftar Dosen' }}
                             </a>
                         </li>
+
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route('admin.users.mahasiswa') }}"
+                                class="c-sidebar-nav-link {{ request()->is('admin/dosen') || request()->is('admin/dosen/*') ? 'c-active' : '' }}">
+                                <i class="fa-fw fas fa-user c-sidebar-nav-icon">
+
+                                </i>
+                                {{ 'Daftar Mahasiswa' }}
+                            </a>
+                        </li>
                     @endcan
                     @can('audit_log_access')
                         <li class="c-sidebar-nav-item">

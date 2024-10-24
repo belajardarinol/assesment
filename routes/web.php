@@ -37,6 +37,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('users', 'UsersController');
     Route::get('users/masuk/{id}', 'UsersController@masuk')->name('users.masuk');
     Route::get('dosen', 'UsersController@dosen')->name('users.dosen');
+    Route::get('mahasiswa', 'UsersController@mahasiswa')->name('users.dosen');
 
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);

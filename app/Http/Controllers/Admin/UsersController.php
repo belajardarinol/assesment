@@ -34,6 +34,14 @@ class UsersController extends Controller
 
         return view('admin.users.dosen', compact('users'));
     }
+    public function mahasiswa()
+    {
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $users = User::with(['roles', 'team'])->get();
+
+        return view('admin.users.dosen', compact('users'));
+    }
 
     public function reset()
     {
