@@ -186,7 +186,7 @@
                                                     aria-valuenow="25" class="progress-bar bg-success" style="width: 25%;">
                                                 </div>
                                             </div> <small class="text-muted">
-                                                Lorem ipsum dolor sit amet enim.
+                                                {{-- Lorem ipsum dolor sit amet enim. --}}
                                             </small>
                                         </div>
                                     </div>
@@ -208,11 +208,37 @@
                                                     aria-valuenow="25" class="progress-bar bg-varning" style="width: 25%;">
                                                 </div>
                                             </div> <small class="text-muted">
-                                                Lorem ipsum dolor sit amet enim.
+                                                {{-- Lorem ipsum dolor sit amet enim. --}}
                                             </small>
                                         </div>
                                     </div>
                                 </div>
+                                @php $members = \App\Models\Team::all(); @endphp
+                                @foreach ($members as $member)
+                                    <div class="col-lg-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="h4 m-0">
+                                                    @php $user = \App\Models\User::where('team_id', $member->id)->get(); @endphp
+                                                    @if ($members)
+                                                        {{ $member['name'] }}
+                                                    @else
+                                                        0
+                                                    @endif
+                                                </div>
+                                                <div> Jumlah Mahasiswa</div>
+                                                <div class="progress-xs my-3 mb-0 progress">
+                                                    <div role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                                                        aria-valuenow="{{ count($user) }}" class="progress-bar bg-warning"
+                                                        style="width: 25%;">
+                                                    </div>
+                                                </div> <small class="text-muted">
+                                                    {{ count($user) }}
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                             {{-- <div class="row g-4 mb-4">
                                 <div class="col-sm-6 col-xl-3">
