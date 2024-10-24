@@ -52,7 +52,7 @@
                     <button class="rounded-pill btn btn-danger" type="submit">
                         {{ trans('global.save') }}
                     </button>
-                    <a class="rounded-pill btn btn-default" href="{{ route('admin.klasifikasis.index') }}">
+                    <a class="rounded-pill btn btn-default" href="{{ route('admin.sub-babs.index') }}">
                         {{ trans('global.back_to_list') }}
                     </a>
                 </div>
