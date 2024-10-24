@@ -124,7 +124,7 @@ return [
     'assigned_user'                        => 'Ditugaskan (pengguna)',
     'attachment'                           => 'Lampiran',
     'axis'                                 => 'Sumbu',
-    'back_to_list'                         => 'Kembali ke daftar',
+    'back_to_list'                         => 'Kembali',
     'basic_crm'                            => 'CRM Standar',
     'budget'                               => 'Anggaran',
     'calendar_sources'                     => 'Sumber Kalender',
